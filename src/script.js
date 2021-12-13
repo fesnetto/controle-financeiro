@@ -9,11 +9,10 @@ const inputTransactionAmount = document.querySelector('#amount')
 const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'))
 let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : []
 
-const removeTransactions = ID => {
-  transactions = transactions.filter(transactions => transaction.id !== ID)
+const removeTransactions = id => {
+  transactions = localStorage.getItem(transactions.filter(transactions => transaction.id !== id))
   updateLocalStorage()
-  init()
-}
+};
 
 const addTransactionIntoDOM = ({ amount, name, id }) => {
   const operator = amount < 0 ? '-' : '+'
@@ -68,9 +67,9 @@ const addToTransactionsArray = (transactionName, transactionAmount) => {
 }
 
 const cleanInputs = () => {
-  inputTransactionName.value = ' '
-  inputTransactionAmount.value = ' '
-}
+  inputTransactionName.value = ''
+  inputTransactionAmount.value = ''
+};
 
 const handleFormSubmit = event => {
   event.preventDefault()
